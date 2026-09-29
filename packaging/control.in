@@ -1,0 +1,15 @@
+Package: tallystat
+Version: @VERSION@
+Architecture: @ARCH@
+Maintainer: Jonathan Bailey <jdbailey9@gmail.com>
+Installed-Size: @SIZE@
+Depends: libc6 (>= @LIBC@)
+Section: utils
+Priority: optional
+Description: terminal-based graphical system monitor
+ tallystat draws live braille graphs of CPU and memory usage, network
+ sparklines, disk usage and I/O, hardware temperatures and a sortable,
+ filterable process list, all inside the terminal.
+ .
+ It is a single small native binary that reads /proc and /sys directly
+ and has no dependencies beyond the C library.

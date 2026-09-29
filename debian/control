@@ -1,0 +1,18 @@
+Source: tallystat
+Section: utils
+Priority: optional
+Maintainer: Jonathan Bailey <jdbailey9@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: tallystat
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: terminal-based graphical system monitor
+ tallystat draws live braille graphs of CPU and memory usage, network
+ sparklines, disk usage and I/O, hardware temperatures and a sortable,
+ filterable process list, all inside the terminal.
+ .
+ It is a single small native binary that reads /proc and /sys directly
+ and has no dependencies beyond the C library.

@@ -1,0 +1,95 @@
+.TH TALLYSTAT 1 "September 2026" "tallystat 1.0.0" "User Commands"
+.SH NAME
+tallystat \- terminal-based graphical system monitor
+.SH SYNOPSIS
+.B tallystat
+[\fIoptions\fR]
+.SH DESCRIPTION
+.B tallystat
+shows live CPU and memory graphs, network activity, disk usage and I/O,
+hardware temperatures and a process list in the terminal. It reads
+.I /proc
+and
+.I /sys
+directly.
+.SH OPTIONS
+.TP
+.BR \-c ", " \-\-color =\fINAME\fR
+Color scheme: default, ember, monokai, solarized or nord.
+.TP
+.BR \-m ", " \-\-minimal
+Only show the CPU, memory and process widgets.
+.TP
+.BR \-r ", " \-\-rate =\fISECONDS\fR
+Refresh interval (0.1 to 3600, default 1).
+.TP
+.BR \-a ", " \-\-averagecpu
+Show the average CPU usage line.
+.TP
+.BR \-p ", " \-\-percpu
+Show one line per CPU core. With neither \-a nor \-p, per-core lines are
+shown on machines with up to 8 cores and the average otherwise.
+.TP
+.BR \-s ", " \-\-statusbar
+Show hostname, time and uptime on the bottom line.
+.TP
+.BR \-f ", " \-\-fahrenheit
+Show temperatures in Fahrenheit.
+.TP
+.BR \-S ", " \-\-graphscale =\fIN\fR
+Horizontal graph scale from 1 to 40 (default 7).
+.TP
+.BR \-i ", " \-\-interface =\fINAME\fR
+Only measure the given network interface. By default every interface
+except loopback is summed.
+.TP
+.BR \-l ", " \-\-list\-colors
+List the color schemes and exit.
+.TP
+.BR \-V ", " \-\-version
+Print the version and exit.
+.TP
+.BR \-h ", " \-\-help
+Print usage and exit.
+.SH KEYS
+.TP
+.B q\fR, \fBCtrl-c
+Quit.
+.TP
+.B k\fR, \fBUp\fR / \fBj\fR, \fBDown
+Move the process cursor.
+.TP
+.B Ctrl-u\fR / \fBCtrl-d
+Half page up / down.
+.TP
+.B Ctrl-b\fR, \fBPgUp\fR / \fBCtrl-f\fR, \fBPgDn
+Full page up / down.
+.TP
+.B gg\fR, \fBHome\fR / \fBG\fR, \fBEnd
+Jump to the top / bottom.
+.TP
+.B Tab
+Toggle grouping processes by name.
+.TP
+.B dd
+Send SIGTERM to the selected process, or to every process in the selected group.
+.TP
+.B /
+Filter processes by name or PID. Enter keeps the filter, Esc clears it.
+.TP
+.B c\fR, \fBm\fR, \fBp
+Sort by CPU, memory or PID.
+.TP
+.B h\fR / \fBl
+Scale graphs in / out.
+.TP
+.B ?
+Toggle the help window.
+.PP
+Clicking a process selects it; the mouse wheel scrolls the list.
+.SH NOTES
+Process CPU% is relative to one core, so a multi-threaded process can
+exceed 100%. Memory usage counts memory in use as MemTotal minus
+MemAvailable.
+.SH LICENSE
+MIT.

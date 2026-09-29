@@ -1,0 +1,8 @@
+build/
+dist/
+/tallystat
+debian/.debhelper/
+debian/tallystat/
+debian/files
+debian/*.substvars
+debian/debhelper-build-stamp
